@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-app.use('/pyromailer_logo.ico', express.static('assets/pyromailer_logo.ico'));
+app.use('/favicon.ico', express.static('assets/pyromailer_logo.ico'));
 app.use(express.static("assets"));
 app.use(express.urlencoded({ extended: true })); 
 
