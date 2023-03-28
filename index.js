@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer');
 const express = require('express');
+const favicon = require('express-favicon');
 const app = express();
 
 const transporter = nodemailer.createTransport({
@@ -10,8 +11,7 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-app.use('/favicon.ico', express.static('assets/pyromailer_logo.ico'));
-app.use(express.static("assets"));
+app.use(favicon(__dirname + '/assets/favicon.ico'));
 app.use(express.urlencoded({ extended: true })); 
 
 app.get('/', (req, res) => {
