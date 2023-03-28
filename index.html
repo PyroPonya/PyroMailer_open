@@ -23,14 +23,68 @@
     <button type="submit">Send</button>
     <hr>
     <h3>Example:</h3><br>
-    <code>
-      const mailOptions = {
-        from: req.body.name + ' <' + req.body.contact + '>',
-        to: 'alexander.front@megapari.com',
-        subject: req.body.subject,
-        html: '<p>' + req.body.message + '</p>'
-      };
+    <code 
+    style="
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    ">
+      <h3>Data values required to submit:</h3>
+      <div class="data">
+        const data = {<br>
+          &nbsp;&nbsp;name: '',<br>
+          &nbsp;&nbsp;contact: '',<br>
+          &nbsp;&nbsp;subject: '',<br>
+          &nbsp;&nbsp;message: '',<br>
+        }br
+      </div>
+      <div class="headers">
+        const myHeaders = new Headers();<br>
+        myHeaders.append('accept', 'application/json');<br>
+        myHeaders.append('Content-Type', 'application/json');<br>
+        myHeaders.append('X-Client-Ip', 'any');<br>
+        myHeaders.append('X-Visitor-Id', 'dont_care');<br>
+      </div>
+      <div class="options">
+        const options = {<br>
+          &nbsp;&nbsp;method: 'POST',<br>
+          &nbsp;&nbsp;headers: myHeaders,<br>
+          &nbsp;&nbsp;body: JSON.stringify(dataBlob),<br>
+        };<br>
+      </div>
+      <div class="addres">
+        fetch endpoint: <b>https://pyro-mailer-test.vercel.app/send</b><br>
+        <i>please, use proxy</i><br>
+      </div>
+      <h2>OR</h2>
+      <div class="api_2">
+        use the next html template: <br>
+        <div class="form_placeholder" style="padding: 10px; border: 2px solid gray; border-radius: 15px;"></div>
+      </div>
     </code>
   </form>
+  <script>
+    const form_placeholder = document.querySelector('.form_placeholder');
+    const embed_code = `
+      <form action="https://pyroproxy.herokuapp.com/https://pyro-mailer-test.vercel.app/send" method="POST"><br>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <br>
+        <label for="contact">Contact:</label><br>
+        <input type="text" id="contact" name="contact"><br>
+        <br>
+        <label for="subject">Subject:</label><br>
+        <input type="text" id="subject" name="subject"><br>
+        <br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message"></textarea><br>
+        <br>
+        <button type="submit">Send</button><br>
+      </form><br>
+    `;
+    form_placeholder.innerText = embed_code;
+  </script>
 </body>
 </html>
