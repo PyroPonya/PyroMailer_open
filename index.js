@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
 });
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.favicon("./assets/pyromailer_logo.ico")); 
+app.use(express.favicon(__dirname + '/assets/pyromailer_logo.ico'));
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
