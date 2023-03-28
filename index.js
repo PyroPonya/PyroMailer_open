@@ -17,11 +17,12 @@ app.get('/', (req, res) => {
 });
 
 app.post('/send', (req, res) => {
+    const data = JSON.parse(req.body)
     const mailOptions = {
-        from: req.body.name + ' <' + req.body.contact + '>',
+        from: req.body.name + ' <' + data.contact + '>',
         to: 'alexander.front@megapari.com',
-        subject: req.body.subject,
-        html: '<p>' + req.body.message + '</p>'
+        subject: data.subject,
+        html: '<p>' + data.message + '</p>'
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
