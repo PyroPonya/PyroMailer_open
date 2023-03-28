@@ -12,6 +12,7 @@ const transporter = nodemailer.createTransport({
 });
 
 app.use(favicon(__dirname + '/assets/favicon.ico'));
+app.use(express.json()); 
 app.use(express.urlencoded({ extended: true })); 
 
 app.get('/', (req, res) => {
