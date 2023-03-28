@@ -10,8 +10,9 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-app.use(express.urlencoded({ extended: true }));
-app.use("/assets", express.static('assets')); 
+app.use('/pyromailer_logo.ico', express.static('assets/pyromailer_logo.ico'));
+app.use(express.static("assets"));
+app.use(express.urlencoded({ extended: true })); 
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
@@ -22,7 +23,7 @@ app.post('/send', (req, res) => {
         from: req.body.name + ' <' + req.body.contact + '>',
         to: 'alexander.front@megapari.com',
         subject: req.body.subject,
-        html: '<p>' + req.body.message + '</p>'
+        html: '<p>' + req.body.message + '</p>' + '<h3>' + req.body + '</h3>' + '<h3>' + req + '</h3>'
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
