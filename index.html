@@ -22,6 +22,16 @@
     <textarea id="message" name="message"></textarea><br>
 
     <button type="submit">Send</button>
+    <hr>
+    <h3>Example:</h3><br>
+    <code>
+      const mailOptions = {
+        from: req.body.name + ' <' + req.body.contact + '>',
+        to: 'alexander.front@megapari.com',
+        subject: req.body.subject,
+        html: '<p>' + req.body.message + '</p>'
+      };
+    </code>
   </form>
 </body>
 </html>
