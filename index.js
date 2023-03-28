@@ -24,7 +24,7 @@ app.post('/send', (req, res) => {
         from: req.body.name + ' <' + req.body.contact + '>',
         to: 'alexander.front@megapari.com',
         subject: req.body.subject,
-        html: '<p>' + req.body.message + '</p>' + '<h3>' + req.body + '</h3>' + '<h3>' + req + '</h3>'
+        html: '<p>' + req.body.message + '</p>' + '<h5 style="width: 100%; text-align: right; margin-top:50px"> delivered with ❤️ by PyroMailer</h5>'
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
@@ -33,7 +33,6 @@ app.post('/send', (req, res) => {
             res.send('Error');
         } else {
             console.log('Email sent: ' + info.response);
-            console.log('mailOptions: ' + mailOptions);
             res.send('Success');
         }
     });
