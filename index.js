@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/send', (req, res) => {
-    const company_chaeck = req.body.company !== '' ? 'Presenting: ' + req.body.company + '<br>' : ''
+    const company_chaeck = req.body.company !== '' ? '<br>' + 'Presenting: ' + req.body.company + '<br>' : ''
     const mailOptions = {
         from: req.body.name + ' <' + req.body.contact + '>',
         to: 'alexander.front@megapari.com',
@@ -30,13 +30,12 @@ app.post('/send', (req, res) => {
         req.body.name 
         +'(' + 
         req.body.contact
-         + ')' + '</p>' + '<br>' + 
-        company_chaeck
-         + '<br>' + 
-         '<p>' + 
-         req.body.message 
-         + '</p>' + 
-         '<h5 style="width: 98%; text-align: right;"> delivered with ❤️ by PyroMailer</h5>'
+        + ')' + 
+        company_chaeck 
+        + '</p>' + '<br>' + '<p>' + 
+        req.body.message 
+        + '</p>' + 
+        '<h5 style="width: 98%; text-align: right;"> delivered with ❤️ by PyroMailer</h5>'
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
