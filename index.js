@@ -24,7 +24,18 @@ app.post('/send', (req, res) => {
         from: req.body.name + ' <' + req.body.contact + '>',
         to: 'alexander.front@megapari.com',
         subject: req.body.subject,
-        html: '<p>' + req.body.message + '</p>' + '<h5 style="width: 100%; text-align: right; margin-top:50px"> delivered with ❤️ by PyroMailer</h5>'
+        html: 
+        '<p>Message from: ' + 
+        req.body.name 
+        +'(' + 
+        req.body.contact
+         + ')' + '</p>' + '<br>' + 
+        req.body.company !== '' ? 'Presenting: ' + req.body.company + '<br>' : ''
+         + '<br>' + 
+         '<p>' + 
+         req.body.message 
+         + '</p>' + 
+         '<h5 style="width: 98%; text-align: right;"> delivered with ❤️ by PyroMailer</h5>'
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
