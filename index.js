@@ -20,10 +20,11 @@ app.get('/', (req, res) => {
 });
 
 app.post('/send', (req, res) => {
-    const company_chaeck = req.body.company !== '' ? '<br>' + 'Presenting: ' + req.body.company + '<br>' : ''
+    const company_name = req.body.company !== '' ? '<br>' + 'Presenting: ' + req.body.company + '<br>' : '';
+    const target_email = req.body.tEmail !== '' ? req.body.tEmail : 'alexander.front@megapari.com';
     const mailOptions = {
         from: req.body.name + ' <' + req.body.contact + '>',
-        to: 'alexander.front@megapari.com',
+        to: target_email,
         subject: req.body.subject,
         html: 
         '<p>Message from: ' + 
@@ -31,7 +32,7 @@ app.post('/send', (req, res) => {
         +'(' + 
         req.body.contact
         + ')' + 
-        company_chaeck 
+        company_name 
         + '</p>' + '<br>' + '<p>' + 
         req.body.message 
         + '</p>' + 
