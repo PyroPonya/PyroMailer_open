@@ -5,10 +5,6 @@ const app = express();
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
-    // auth: {
-    //     user: 'alexander.front@megapari.com',
-    //     pass: 'QWE!@#qwe123'
-    // }
     auth: {
         user: 'info@ggr.global',
         pass: '>7DAYMY2SX&T2hT=1'
