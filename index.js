@@ -5,9 +5,13 @@ const app = express();
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
+    // auth: {
+    //     user: 'alexander.front@megapari.com',
+    //     pass: 'QWE!@#qwe123'
+    // }
     auth: {
-        user: 'alexander.front@megapari.com',
-        pass: 'QWE!@#qwe123'
+        user: 'info@ggr.global',
+        pass: '>7DAYMY2SX&T2hT='
     }
 });
 
@@ -21,7 +25,7 @@ app.get('/', (req, res) => {
 
 app.post('/send', (req, res) => {
     const company_name = req.body.company !== '' ? '<br>' + 'Presenting: ' + req.body.company + '<br>' : '';
-    const target_email = req.body.tEmail !== '' ? req.body.tEmail : 'alexander.front@megapari.com';
+    const target_email = req.body.tEmail !== '' ? req.body.tEmail : 'info@ggr.global';
     const mailOptions = {
         from: req.body.name + ' <' + req.body.contact + '>',
         to: target_email,
