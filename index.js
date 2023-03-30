@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
     // }
     auth: {
         user: 'info@ggr.global',
-        pass: '>7DAYMY2SX&T2hT='
+        pass: '>7DAYMY2SX&T2hT=1'
     }
 });
 
