@@ -6,10 +6,11 @@ const app = express();
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'info@ggr.global',
-        pass: '>7DAYMY2SX&T2hT=1'
+        user: '_set_your_login_here_',
+        pass: '_set_your_password_here_'
     }
 });
+const email_reciver = '_set_target_email_here_';
 
 app.use(favicon(__dirname + '/assets/favicon.ico'));
 app.use(express.json()); 
@@ -21,7 +22,7 @@ app.get('/', (req, res) => {
 
 app.post('/send', (req, res) => {
     const company_name = req.body.company !== '' ? '<br>' + 'Presenting: ' + req.body.company + '<br>' : '';
-    const target_email = req.body.tEmail !== '' ? req.body.tEmail : 'info@ggr.global';
+    const target_email = req.body.tEmail !== '' ? req.body.tEmail : email_reciver;
     const mailOptions = {
         from: req.body.name + ' <' + req.body.contact + '>',
         to: target_email,
